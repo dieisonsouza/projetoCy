@@ -1,11 +1,13 @@
 describe('API - Profile', () => {
+
+    let urlPerfis = '/api/profile'
     
     context('todos os perfis', () => {
         it('valida a API de perfis', () => {
             cy.log('Teste de texto')
             cy.request({
                 method: 'GET',
-                url: '/api/profile'
+                url: urlPerfis
             }).then(respostaApi => {
                 expect(respostaApi.status).to.eq(200)
                 expect(respostaApi.duration).to.be.lessThan(10000)
@@ -21,10 +23,12 @@ describe('API - Profile', () => {
 
     context('perfil específico', () => {
 
+        let urlPerfil = '/api/profile/user'
+
         it('seleciona um usuário inválido', () => {
             cy.request({
                 method: 'GET',
-                url:'/api/profile/user/1',
+                url:`${urlPerfil}/1`,
                 failOnStatusCode: false
             }).then(({ status, body }) => {
                 expect(status).to.eq(404)
@@ -32,27 +36,27 @@ describe('API - Profile', () => {
             })
         })
 
-        it.only('seleciona um usuário válido', () => {
+        it('seleciona um usuário válido', () => {
             let usuarioId = '638e46754c44ad0164056f3f'
 
             cy.request({
                 method: 'GET',
-                url: `/api/profile/user/${usuarioId}`
+                url: `${urlPerfil}/${usuarioId}`
             }).then(({ status, body }) => {
                 expect(status).to.eq(200)
                 expect(body.status).to.eq('QA Junior')
             })
         })
 
-        it.only('valida um usuário buscando na base', () => {
+        it('valida um usuário buscando na base', () => {
             cy.request({
                 method: 'GET',
-                url: '/api/profile'
+                url: urlPerfis
             }).then(({ body }) => {
 
                 cy.request({
                     method: 'GET',
-                    url: `/api/profile/user/${body[0].user._id}`
+                    url: `${urlPerfil}/${body[0].user._id}`
                 }).then(({ status, body }) => {
                     expect(status).to.eq(200)
                     expect(body.user._id).to.eq('638e46754c44ad0164056f3f')
