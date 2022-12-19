@@ -42,7 +42,22 @@ describe('API - Profile', () => {
                 expect(status).to.eq(200)
                 expect(body.status).to.eq('QA Junior')
             })
-            
+        })
+
+        it.only('valida um usuário buscando na base', () => {
+            cy.request({
+                method: 'GET',
+                url: '/api/profile'
+            }).then(({ body }) => {
+
+                cy.request({
+                    method: 'GET',
+                    url: `/api/profile/user/${body[0].user._id}`
+                }).then(({ status, body }) => {
+                    expect(status).to.eq(200)
+                    expect(body.user._id).to.eq('638e46754c44ad0164056f3f')
+                })
+            })
         })
     })
 })
