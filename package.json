@@ -1,7 +1,6 @@
 {
   "name": "projetocy",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,11 +8,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^11.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cypress": "^11.2.0",
     "eslint": "^8.29.0",
     "eslint-plugin-cypress": "^2.12.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dieisonsouza/projetoCy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dieisonsouza/projetoCy/issues"
+  },
+  "homepage": "https://github.com/dieisonsouza/projetoCy#readme",
+  "description": ""
 }
