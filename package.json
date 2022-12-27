@@ -8,19 +8,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "ajv": "^8.11.2",
+    "mongoose": "^6.8.1"
+  },
   "devDependencies": {
+    "@cypress/grep": "^3.1.3",
     "cypress": "^11.2.0",
     "eslint": "^8.29.0",
     "eslint-plugin-cypress": "^2.12.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dieisonsouza/projetoCy.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dieisonsouza/projetoCy/issues"
-  },
-  "homepage": "https://github.com/dieisonsouza/projetoCy#readme",
-  "description": ""
+  }
 }
