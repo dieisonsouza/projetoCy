@@ -42,6 +42,43 @@ describe('CRUD - Posts', () => {
         }).then(({ status, body }) => {
             expect(status).to.eq(200)
             expect(body.text).to.eq(mensagem)
+            expect(body.likes).to.have.lengthOf(0)
+        })
+    })
+
+    it('atualiza o post', () => {
+        
+        cy.request({
+            method: 'PUT',
+            url: `/api/posts/like/${postId}`
+        }).then(({ status }) => {
+            expect(status).to.eq(200)
+
+            cy.request({
+                method: 'GET',
+                url: `/api/posts/${postId}`
+            }).then(({ body }) => {
+                expect(body.likes).to.have.lengthOf(1)
+            })    
+        })
+    })
+
+    it('deleta o post', () => {
+        
+        cy.request({
+            method: 'DELETE',
+            url: `/api/posts/${postId}`
+        }).then(({ status, body }) => {
+            expect(status).to.eq(200)
+            expect(body.msg).to.eq('Post removido')
+
+            cy.request({
+                method: 'GET',
+                url: `/api/posts/${postId}`,
+                failOnStatusCode: false
+            }).then(({ status }) => {  
+                expect(status).to.eq(404)
+            })      
         })
     })
 })
