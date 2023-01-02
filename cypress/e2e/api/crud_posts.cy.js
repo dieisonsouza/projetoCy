@@ -5,18 +5,8 @@ describe('CRUD - Posts', () => {
     
     before(() => {
 
-        cy.request({
-            method: 'POST',
-            url: '/api/auth',
-            body: {
-                email: Cypress.env('email'),
-                password: Cypress.env('password')
-            }
-        }).then(() => {
-            Cypress.Cookies.defaults({
-                preserve: 'jwt'
-            })
-        })
+        cy.login(Cypress.env('email'), Cypress.env('password'))
+
     })
 
     it('cria um post', () => {
@@ -62,7 +52,7 @@ describe('CRUD - Posts', () => {
             })    
         })
     })
-
+    
     it('deleta o post', () => {
         
         cy.request({
