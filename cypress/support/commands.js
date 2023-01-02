@@ -44,6 +44,6 @@ Cypress.Commands.add('testeContrato', (schema, resposta) => {
 })
 
 // seleciona um elemento pelo atributo data-test
-Cypress.Commands.add('getElement', seletor => {
+/*Cypress.Commands.add('getElement', seletor => {
     return cy.get(`[data-test=${seletor}]`)
-})
+})*/
