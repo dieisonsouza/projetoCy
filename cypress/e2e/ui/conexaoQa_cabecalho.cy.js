@@ -53,7 +53,6 @@ describe('cabeçalho da página home', () => {
             ]
 
             menus.forEach(({ seletor, link }) => {
-                
                 validarMenu(seletor, link)
             })
         })
