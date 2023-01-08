@@ -1,4 +1,4 @@
-import { testeContratoPOSTPosts } from '../../fixtures/schema-Post-posts'
+import { testeContratoPOSTPosts } from '../../fixtures/contratos/schema-Post-posts'
 import { testeContratoGETPosts } from '../../fixtures/contratos/schema-GET-posts'
 
 describe('CRUD - Posts', () => {
@@ -12,7 +12,7 @@ describe('CRUD - Posts', () => {
 
     })
 
-    it.only('cria um post', () => {
+    it('cria um post', () => {
         
         cy.request({
             method: 'POST',
@@ -29,7 +29,7 @@ describe('CRUD - Posts', () => {
         })
     })
 
-    it.only('ler o post', () => {
+    it('ler o post', () => {
 
         cy.request({
             method: 'GET',
