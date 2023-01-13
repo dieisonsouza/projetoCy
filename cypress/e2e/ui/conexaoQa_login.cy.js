@@ -3,7 +3,7 @@ describe('página de login', () => {
     beforeEach(() => {
         cy.visit('/login')
     })
-    
+
     it('faz o login válido', () => {
 
         cy.intercept('GET', '/api/profile/me')

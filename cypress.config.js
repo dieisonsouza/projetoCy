@@ -7,7 +7,7 @@ module.exports = defineConfig({
         viewportHeight: 1080,
         viewportWidth: 1920,
         baseUrl: 'http://localhost:3000',
-        projectId: 'sww19a',
+        projectId: '3f1y55',
         retries: {
             runMode: 2,
             openMode: 1
