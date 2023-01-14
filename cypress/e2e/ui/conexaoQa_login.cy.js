@@ -22,11 +22,11 @@ describe('página de login', () => {
             .click()
             .wait('@apiLogin')
             .then(({ response }) => {
-                expect(response.body.errors[0].msg).to.eq('Não há perfil para este usuário')
+                expect(response.body.company).to.eq('Iterasys')
             })
 
         // valida se o usuário está logado
         cy.getElement('dashboard-welcome')
-            .should('contain', 'Teste Iterasys')
+            .should('contain', 'Iterasys')
     })
 })

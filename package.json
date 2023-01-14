@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.11.2",
-    "mongoose": "^6.8.1"
+    "mongoose": "^5.12.3"
   },
   "devDependencies": {
     "@cypress/grep": "^3.1.3",

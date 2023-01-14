@@ -9,7 +9,7 @@ module.exports = defineConfig({
         baseUrl: 'http://localhost:3000',
         projectId: '3f1y55',
         retries: {
-            runMode: 2,
+            runMode: 1,
             openMode: 1
         },
 
